@@ -15,7 +15,7 @@ Description of the app ...
 
 ## Section Heading
 
-This is filler text, please replace this with text for this section.
+This is my first chatbot App
 
 ## Further Reading
 
