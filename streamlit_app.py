@@ -27,4 +27,13 @@ if "messages" not in st.session_state.keys():
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.write(message["content"])
+
+def generate_response(prompt_input, email, passwd):
+    # huggingface login
+    sign = Login(email, passwd)
+    cookies = sign.login()
+    # create chatbot
+    chatbot = hugchat.ChatBot(cookies = cookies.get_dict())
+    return chatbot.chat(prompt_input)
+    
 st.write('Hello world!')
