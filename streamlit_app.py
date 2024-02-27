@@ -4,6 +4,8 @@ from hugchat.login import Login
 
 st.set_page_config(page_title="🤗💬 HugChat")
 
+
+
 #Sidebar
 with st.sidebar:
     st.title('🤗💬 HugChat')
@@ -30,9 +32,10 @@ for message in st.session_state.messages:
 
 def generate_response(prompt_input, email, passwd):
     # huggingface login
+    cookie_path_dir = "./cookies"
     sign = Login(email, passwd)
-    cookies = sign.login()
-    # create chatbot
+    cookies = sign.login(cookie_dir_path=cookie_path_dir, save_cookies=True)
+    # create chatbot    
     chatbot = hugchat.ChatBot(cookies = cookies.get_dict())
     return chatbot.chat(prompt_input)
 
