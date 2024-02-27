@@ -11,7 +11,7 @@ with st.sidebar:
         st.success('HuggingFace Login credentials already provided!', icon='✅')
         hf_email = st.secrets['EMAIL']
         hf_pass = st.secrets['PASS']
-     else:
+    else:
         hf_email = st.text_input('Enter E-mail:', type='password')
         hf_pass = st.text_input('Enter password:', type='password')
         if not (hf_email and hf_pass):
